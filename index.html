@@ -11,8 +11,8 @@
       <h1>{{tvShow}}!</h1>
       <h2>Main characters</h2>
       <ul>
-        <li v-for="{name, occupation} in characters">
-          {{name}} was a {{occupation}}.
+        <li v-for="({name, occupation}, index) in characters">
+          {{index + 1}}. {{name}} was a {{occupation}}.
         </li>
       </ul>
       <p>Timeline</p>
