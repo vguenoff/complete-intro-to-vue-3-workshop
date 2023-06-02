@@ -4,7 +4,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Halt and Catch Fire</title>
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <h1>{{tvShow}}!</h1>
+      <h2>Main characters</h2>
+      <ul>
+        <li v-for="{name, occupation} in characters">
+          {{name}} was a {{occupation}}.
+        </li>
+      </ul>
+      <p>Timeline</p>
+      <ul>
+        <li v-for="year in tens">
+          <h3>{{year}}</h3>
+          <h4 v-if="yearsActiveShow.includes(year)">Show was active</h4>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue
+      const app = createApp({
+        data() {
+          return {
+            tvShow: 'Halt and Catch Fire',
+            characters: [
+              {
+                name: 'Gordon',
+                occupation: 'programmer',
+              },
+              {
+                name: 'Cameron',
+                occupation: 'programmer',
+              },
+              {
+                name: 'Joe',
+                occupation: 'manager',
+              },
+            ],
+            yearsActiveShow: [2014, 2015, 2016, 2017],
+            tens: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+          }
+        },
+      })
+      app.mount('#app')
+    </script>
+  </body>
 </html>
